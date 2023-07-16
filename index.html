@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Quantificação de Redes</title>
+</head>
+<body>
+    <div id="container">
+
+        <h1>Site de Quantificação de Backbone</h1>
+        <h3>Informe os dados necessários para o cálculo:</h3>
+        <section id="coeficientes-da-equacao">
+            <label for="nPavimentos" class="definicoes">Número de pavimentos da edificação: </label>
+            <input id="nPavimentos" type="number" value="4">
+            <br>
+            <label for="quantBackbonesAndar" class="definicoes">Quantidade de backbones por andar: </label>
+            <input id="quantBackbonesAndar" type="number" value="1">
+            <br>
+            <label for="nParesFO" class="definicoes">Número de pares de fibras disponível por andar: </label>
+            <input id="nParesFOAndar" type="number" value="4">
+            <br>
+            <label for="nParesFO" class="definicoes">Número de pares de fibras para o backbone do campus: </label>
+            <input id="nParesFOCampus" type="number" value="4">
+            <br>
+            <label for="medidaBackbone" class="definicoes">Medida básica para cálculo dos lances de cabo do backbone: </label>
+            <input id="medidaBackbone" type="number" value="5">
+            <br>
+            <label for="especificacaoFO" class="definicoes">Especificação do cabo de fibra óptica: </label>
+            <input id="especificacaoFO" type="text" value="Tight Buffer (FOMMIG)">
+            <br>
+            <label for="característicaFO" class="definicoes">Característica da fibra óptica: </label>
+            <input id="característicaFO" type="text" value="50 x 125µm">
+            <br>
+            <label for="backbonePrimSec" class="definicoes">Verificação da existência de backbone primário e/ou secundário </label>
+            <input id="backbonePrimSec" type="text" value="Sim">
+            <br>
+            <br>
+            <center>
+                <button class="button" id="botao-quantificar">Quantificar</button> 
+                <button class="button" id="botao-limpar">Limpar</button>
+            </center>
+        </section>
+        <h2>Tabela de Especificações SEQ</h2>
+        <table>
+            <tr>
+                <th>Descrição</th>
+                <th>Item</th>
+                <th>Quantidade</th>
+            </tr>
+            <tr>
+                <td id="tipoFO">Cabo de Fibra Óptica Tight Buffer (FOMMIG) 50 x 125µm - com 8 fibras</td>
+                <td class="valorAlterado">m</td>
+                <td id="quantMetrosFO" class="valorAlterado">x</td>
+            </tr> 
+            <tr>
+                <td>Chassi DIO (Distribuido Interno Óptico) com 24 portas - 1U - 19</td>
+                <td>unid</td>
+                <td id="quantDio" class="valorAlterado">x</td>
+            </tr>
+            <tr>
+                <td id="tipoAcopladorInterno">Acoplador óptico Interno 50 x 125µm - MM - LC - duplo</td>
+                <td>unid</td>
+                <td id="quantAcopladorMM" class="valorAlterado">x</td>
+            </tr>
+            <tr>
+                <td>Acoplador óptico Externo 9 x 125µm - SM - LC - duplo  </td>
+                <td>unid</td>
+                <td id="quantAcopladorSM" class="valorAlterado">x</td>
+            </tr>
+            <tr>
+                <td>Bandeja para emenda de fibra Tigh Tight-Boofer no DIO - (comporta até 12 emendas)</td>
+                <td>unid</td>
+                <td id="quantEmenda" class="valorAlterado">x</td>
+            </tr>
+            <tr>
+                <td id="tipoPigTailInterno">Pig tail Interno 50 x 125µm - MM - 1,5m - simples - conector LC</td>
+                <td>unid</td>
+                <td id="quantPigTailMM" class="valorAlterado">x</td>
+            </tr>
+            <tr>
+                <td>Pig tail Externo 50 x 125µm - SM - 1,5m - simples - conector LC</td>
+                <td>unid</td>
+                <td id="quantPigTailSM" class="valorAlterado">x</td>
+            </tr>
+            <tr>
+                <td id="tipoCordaoOpticoInterno">Cordão Óptico Interno 50 x 125µm - MM - 3m - duplo - conector LC</td>
+                <td>unid</td>
+                <td id="quantCordaoOpticoMM" class="valorAlterado">x</td>
+            </tr>
+            <tr>
+                <td>Cordão Óptico Externo 9 x 125µm - SM - 3m - duplo - conector LC</td>
+                <td>unid</td>
+                <td id="quantCordaoOpticoSM" class="valorAlterado">x</td>
+            </tr>
+        </table>
+        <br>
+        <h2>Tabela de Especificações SET's</h2>
+        <table>
+            <tr>
+                <th>Descrição</th>
+                <th>Item</th>
+                <th>Quantidade</th>
+            </tr>
+            <tr>
+                <td>Terminador Óptico para 8 fibras</td>
+                <td>unid</td>
+                <td id="quantTerminador" class="valorAlterado">x</td>
+            </tr>
+            <tr>
+                <td id="tipoPigTailInternoSet">Pig tail 50 x 125µm - MM - 3,0m - duplo - conector LC</td>
+                <td>unid</td>
+                <td id="quantPigTailMMSet" class="valorAlterado">x</td>
+            </tr>
+        </table>
+        <h2>Miscelânia</h2>
+        <table>
+            <tr>
+                <th>Descrição</th>
+                <th>Item</th>
+                <th>Quantidade</th>
+            </tr>
+            <tr>
+                <td>Etiqueta para Portas do DIO</td>
+                <td>unid</td>
+                <td id="quantEtiquetasDio" class="valorAlterado">x</td>
+            </tr>
+            <tr>
+                <td>Etiqueta para os cordões ópticos e pigtail´s (TO)</td>
+                <td>unid</td>
+                <td id="quantEtiquetasCordaoPigTail" class="valorAlterado">x</td>
+            </tr>
+        </table>
+        <br>
+        <p>João Pedro Torres - Informática  - 3°ano</p>
+        <p>15/07/2023</p>
+    </div>
+    <script src="javaScript.js"></script>
+</body>
+</html>
